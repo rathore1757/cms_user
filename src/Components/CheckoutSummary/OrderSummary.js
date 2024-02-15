@@ -70,13 +70,8 @@ const OrderSummary = ({ selectedAddress, zipcode }) => {
 
   const [goldMemberShip, setGoldMembershipPrice] = useState(0);
   const navigate = useNavigate();
-  const {
-    country_code,
-    symbol,
-    selectedCoupon,
-    setSelectedCoupon,
-    shapeIds,
-  } = useContext(FilterContext);
+  const { country_code, symbol, selectedCoupon, setSelectedCoupon, shapeIds } =
+    useContext(FilterContext);
   const countryCode = country_code || "IN";
   const [mainPrice, setMainPrice] = useState(0);
   const [overAllPrice, setoverAllPrice] = useState(0);
@@ -347,7 +342,7 @@ const OrderSummary = ({ selectedAddress, zipcode }) => {
     }
   };
   const handleSelectCoupon = () => {
-    console.log(selectedCoupon1, "mainPrice", mainPrice);
+    // console.log(selectedCoupon1);
     setSelectedCoupon(selectedCoupon1);
     handleCloseCoupon();
     if (selectedCoupon1?.type === "fixed") {
@@ -378,11 +373,7 @@ const OrderSummary = ({ selectedAddress, zipcode }) => {
     };
     axios
       .request(config)
-      .then((response) => {
-        console.log(response,overAllPrice, "reponseeeeeee mainPrice");
-
-        setCouponsData(response?.data?.data);
-      })
+      .then((response) => setCouponsData(response?.data?.data))
       .catch((error) => console.log(error));
   };
   useEffect(() => {

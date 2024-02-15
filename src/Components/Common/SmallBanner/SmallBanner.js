@@ -11,27 +11,27 @@ const SmallBannerMain = styled.div`
   position: relative;
   background-color: ${(props) => (props.color ? props.color : "antiquewhite")};
   @media screen and (max-width: 576px) {
-    background-color: #f2f6f4;
-  }
+        background-color: #f2f6f4;
+      }
   h2 {
     color: #032140;
     font-size: 48px;
     font-weight: 700;
     @media screen and (max-width: 576px) {
-      font-size: 24px;
-    }
+        font-size: 24px;
+      }
   }
   h3 {
     color: #4d4d4d;
     font-size: 24px;
     font-weight: 400;
     @media screen and (max-width: 576px) {
-      display: none;
-    }
+        display: none;
+      }
   }
   @media screen and (max-width: 576px) {
-    height: 55px;
-  }
+      height: 55px;
+    }
 `;
 
 const SmallBanner = ({
@@ -54,7 +54,7 @@ const SmallBanner = ({
             <div className="small-hero-img">
               <img
                 src={`${environmentVar?.apiUrl}/uploads/ui/${smallBannerImage}`}
-              />
+                />
             </div>
           </div>
         </Container>

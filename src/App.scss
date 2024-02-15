@@ -127,3 +127,9 @@ $dark-blue: #032140;
   display: flex;
   flex-wrap: wrap;
 }
+.only-desktop{
+  display: block;
+  @media screen and (max-width: 768px) {
+    display: none;
+  }
+}

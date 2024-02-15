@@ -5,7 +5,7 @@ import loginImg from '../../Images/login-img.webp'
 const RightImg = () => {
   return (
     <>
-        <Col md={7}>
+        <Col md={7} className='only-desktop'>
             <img src={loginImg} className='img-block-100'/>
         </Col>
     </>

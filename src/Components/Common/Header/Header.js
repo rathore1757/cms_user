@@ -19,6 +19,11 @@ import AuthContext from "../../../context/AuthContext";
 import { Modal, Button } from "react-bootstrap";
 import { FilterContext } from "../../../context/FilterContext";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import HomeIcon from '../../../Images/home-icon.webp'
+import ProfileIcon from '../../../Images/profile-icon.webp'
+import CategoryIcon from '../../../Images/category-icon.webp'
+import OrderIcon from '../../../Images/order-icon.webp'
+import TryonIcon from '../../../Images/tryon-icon.webp'
 import {
   faBook,
   faCube,
@@ -26,6 +31,7 @@ import {
   faGlasses,
   faHamburger,
   faHome,
+  faLayerGroup,
   faObjectGroup,
   faUser,
 } from "@fortawesome/free-solid-svg-icons";
@@ -544,23 +550,21 @@ const Header = ({ setIsAuth, isAuth, profilePopUp, setProfilePopUp }) => {
       {isHomePage && (
         <div className="bottom-menu">
           <ul>
-            <li onClick={() => navigate("/")}>
-              <FontAwesomeIcon
+            <li style={{opacity:"0.6", filter:"grayscale(1)"}} 
+              onClick={() => navigate("/")}>
+              <img src={HomeIcon}/>
+              {/* <FontAwesomeIcon
                 icon={faHome}
                 size="2x"
                 className="bottom-menu-icon"
-              />
+              /> */}
               Home
             </li>
-            <li>
-              <FontAwesomeIcon
-                icon={faGlasses}
-                size="2x"
-                className="bottom-menu-icon"
-              />
+            <li style={{opacity:"0.6", filter:"grayscale(1)"}}>
+            <img src={CategoryIcon}/>
               Explore
             </li>
-            <li
+            <li 
               onClick={() => {
                 if (isAuth) {
                   navigate("/tryon");
@@ -569,23 +573,15 @@ const Header = ({ setIsAuth, isAuth, profilePopUp, setProfilePopUp }) => {
                 }
               }}
             >
-              <FontAwesomeIcon
-                icon={faCube}
-                size="2x"
-                className="bottom-menu-icon"
-              />
-              3D TryOn
+              <img src={TryonIcon} className="try-pop"/>
+              3D
             </li>
-            {/* <li>
-            <FontAwesomeIcon icon={faFileCircleCheck} size="2x" className="bottom-menu-icon" />
+            <li style={{opacity:"0.6", filter:"grayscale(1)"}}>
+            <img src={OrderIcon}/>
             Orders
-            </li> */}
-            <li>
-              <FontAwesomeIcon
-                icon={faUser}
-                size="2x"
-                className="bottom-menu-icon"
-              />
+            </li>
+            <li style={{opacity:"0.6", filter:"grayscale(1)"}}>
+            <img src={ProfileIcon}/>
               Profile
             </li>
           </ul>

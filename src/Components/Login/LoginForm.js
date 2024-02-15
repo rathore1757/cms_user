@@ -183,11 +183,7 @@ const LoginForm = ({ state }) => {
         </div>
 
         <div className="google-login">
-          {/* <img src={GoogleIcon}/> Login with Google */}
-          {/* <button onClick={() => loginWithRedirect()}> */}{" "}
-          <img src={GoogleIcon} onClick={() => loginWithRedirect()} /> Login
-          with Google
-          {/* </button> */}
+          <img src={GoogleIcon}/> Login with Google
         </div>
       </Col>
     </>

@@ -51,6 +51,9 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    @media (max-width: 576px) {
+        align-items: normal;
+    }
     h1{
         color: #4D4D4D;
         font-size: 24px;
@@ -69,6 +72,9 @@
         color: #3E4854;
         font-size: 14px;
         padding: 20px 0;
+        @media (max-width: 576px) {
+            text-align: center;
+        }
         span{
             color: $dark-blue;
             font-weight: 500;
@@ -115,6 +121,9 @@
         height: 32px;
         margin: 0 10px;
     }
+    @media (max-width: 576px) {
+        width: 100%;
+    }
 }
 input:-webkit-autofill {
     box-shadow: 0 0 0 30px white inset;
@@ -127,7 +136,7 @@ input:-webkit-autofill {
     justify-content: center;
     width: 400px;
     @media (max-width: 576px) {
-        width: 200px;
+        width: 100%;
     }
   }
   

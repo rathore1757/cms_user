@@ -19,7 +19,7 @@ const FasionTrend = ({ landingPageData, data }) => {
                 <TrendSlider data={data} />
               </div>
               <div
-                className="light-white-button mt-30"
+                className="light-white-button mt-30 only-desktop"
                 onClick={() => navigate(`/${landingPageData[5]?.slug}`)}
               >
                 View More
