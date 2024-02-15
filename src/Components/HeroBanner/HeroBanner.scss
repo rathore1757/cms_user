@@ -1,0 +1,102 @@
+@import '../../App.scss';
+
+.hero-banner{
+    position: relative;
+    display: flex;
+    justify-content: flex-end;
+    flex-wrap: wrap;
+    align-items: center;
+    background-color: #f6e9d8;
+    height: 600px;
+    @media screen and (max-width: 768px) {
+        height: 300px;
+        // padding: 60px 20px;
+        // background-image: url("../../Images/veuzen-banner-mobile.webp");
+        align-items: flex-end;
+        overflow: hidden;
+      }
+    @media screen and (max-width: 576px) {
+        height: 300px;
+        background-color: #000;
+        // background: linear-gradient(179deg, #FFBA31 0.55%, #FFBB2E 23.49%, #FEBA2B 47.52%, #FFB200 73.51%, #FEA900 89.39%, #F4A000 99.27%);
+      }
+    @media screen and (max-width: 370px) {
+        height: 300px;
+      }
+}
+.img-block-hero {
+    width: auto;
+    height: -webkit-fill-available;
+    @media screen and (max-width: 768px) {
+        width: auto;
+      }
+    @media screen and (max-width: 576px) {
+        opacity: 0.5;;
+      }
+}
+.absoluet-left {
+    position: absolute;
+    // left: 1rem;
+    top: 50%;
+    transform: translateY(-50%);
+    @media screen and (max-width: 768px) {
+        top: auto;
+        bottom: 40px;
+        left: 0;
+        transform: translateY(0%);
+        padding: 0 30px;
+      }
+}
+.hero-text{
+    width: 50%;
+    h5{
+        text-transform: uppercase;
+        color: $light-black;
+        font-weight: 100;
+        @media screen and (max-width: 767px) {
+            color: #fff;
+            font-weight: 400;
+            font-size: 18px;
+          }
+    }
+    h1{
+        color: #6B6263;
+        font-size: 60px;
+        padding-bottom: 20px;
+        span{
+            color: $dark-blue;
+            @media screen and (max-width: 767px) {
+                color: #EFE0CD;
+                text-shadow: 2px 2px 23px #00000045;
+              }
+        }
+        @media screen and (max-width: 1600px) {
+            font-size: 48px;
+            padding-bottom: 10px;
+        }
+        @media screen and (max-width: 1200px) {
+            font-size: 38px;
+            padding-bottom: 10px;
+        }
+        @media screen and (max-width: 767px) {
+            font-size: 32px;
+            padding-bottom: 10px;
+            color: #fff;
+            text-shadow: 2px 2px 23px #00000045;
+          }
+    }
+    @media screen and (max-width: 767px) {
+        width: 100%;
+      }
+}
+
+.slick-next {
+    @media screen and (max-width: 767px) {
+        display: none !important;
+      }
+}
+.slick-prev {
+    @media screen and (max-width: 767px) {
+        display: none !important;
+      }
+}

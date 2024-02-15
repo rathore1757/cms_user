@@ -1,0 +1,94 @@
+@import '../../App.scss';
+
+.single-order-main{
+    padding: 20px;
+    border-radius: 10px;
+    border: 1px solid  #CECECE;
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 25px;
+    @media screen and (max-width: 576px) {
+        flex-direction: column-reverse;
+    }
+}
+.invoice-download{
+    font-size: 16px;
+    padding-right: 5px;
+}
+.single-order-content{
+    display: flex;
+    align-items: center;
+    @media screen and (max-width: 992px) {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    img{
+        @media screen and (max-width: 1400px) {
+            width: 30%;
+        }
+    }
+}
+.single-order-product-details{
+    padding: 0 50px;
+    @media screen and (max-width: 1400px) {
+        padding: 0 20px;
+    }
+    @media screen and (max-width: 1200px) {
+        padding: 0 20px;
+    }
+    @media screen and (max-width: 992px) {
+        padding: 0;
+    }
+    h3{
+        font-size: 16px;
+        color: $light-black;
+        font-weight: 400;
+        margin: 0;
+        padding: 0;
+        @media screen and (max-width: 576px) {
+            font-size: 14px;
+        }
+        
+    }
+    h2{
+        font-size: 16px;
+        color: $light-black;
+        font-weight: 500;
+        padding: 20px 0;
+        margin: 0;
+        @media screen and (max-width: 1200px) {
+            padding: 10px 0 20px;
+            font-size: 14px;
+        }
+    }
+}
+.new-pad{
+    padding: 10px 25px !important;
+    @media screen and (max-width: 1400px) {
+        padding: 10px 10px !important;
+    }
+}
+.single-order-invoice{
+    display: flex;
+    height: fit-content;
+    align-items: center;
+    cursor: pointer;
+    @media screen and (max-width: 576px) {
+        // display: none;
+    }
+}
+.single-order-content-img{
+    width: 316px;
+    max-width: 316px;
+    @media screen and (max-width: 576px) {
+        width: 276px;
+        max-width: 276px;
+    }
+    @media screen and (max-width: 992px) {
+        width: 210px;
+        max-width: 210px;
+    }
+    img{
+        width: 100%;
+    }
+}

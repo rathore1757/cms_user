@@ -1,0 +1,43 @@
+@import '../../App.scss';
+
+.category-component {
+  padding: 25px 15px;
+
+  h2 {
+    font-size: 16px;
+    font-weight: 900;
+    line-height: 24px;
+    letter-spacing: 0.5px;
+    text-align: left;
+    color: #4D4D4D;
+    padding-bottom: 5px;
+  }
+
+  .slick-slide {
+    padding: 0 7px;
+
+    img {
+      width: 100%;
+      object-fit: contain;
+      aspect-ratio: 1 / 1;
+    }
+
+    .category-image {
+      border-radius: 20px;
+      overflow: hidden;
+      // height: 85px;
+      background: #eaeaea;
+    }
+
+    p {
+      font-size: 12px;
+      font-weight: 400;
+      line-height: 15px;
+      letter-spacing: 0.5px;
+      text-align: center;
+      color: #4D4D4D;
+      margin: 10px 0;
+    }
+  }
+
+}
