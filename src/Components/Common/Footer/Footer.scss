@@ -23,7 +23,7 @@
     }
     li{
         padding: 0;
-        padding-bottom: 20px;
+        padding-bottom: 0px;
         margin: 0;
         
         @media (max-width: 768px) {
@@ -49,11 +49,11 @@
       }
 }
 .footer-col{
-    width: 20%;
+    // width: 8%;
     h2{
         color: $light-black;
         font-size: 20px;
-        margin-bottom: 20px;
+        margin-bottom: 10px;
         text-transform: uppercase;
         display: flex;
         align-items: center;

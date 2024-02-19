@@ -34,6 +34,7 @@ import TermsConditions from "./Pages/TermsPrivacy/TermsConditions";
 import PrivacyPolicy from "./Pages/TermsPrivacy/PrivacyPolicy";
 import TrackOrder from "./Pages/TrackOrder/TrackOrder";
 import OrdersTrack from "./Pages/OrderTrack/OrdersTrack";
+import { useLocation } from "react-router-dom";
 import Contact from "./Pages/Contact/Contact";
 import { FilterContext, FilterProvider } from "./context/FilterContext";
 import { ProductDetailProvider } from "./context/ProductDetailContext";
@@ -41,10 +42,14 @@ import { CartDetailProvider } from "./context/CartDetailContext";
 import TryOn3d from "./Components/3dtryon/TryOn3d";
 import TryOn from "./Components/TryOn/TryOn";
 import LinkPage from "./Pages/LinkPage/LinkPage";
+import CMSpage from "./Pages/CMSPage/CMSpage";
 // import Payment from "./Components/Checkoutform/Payment";
 
 function App() {
   const [isAuth, setIsAuth] = useState(false);
+  const location = useLocation();
+  const currentPath = location?.pathname?.split("/");
+  console.log(currentPath, "currentpath");
   const [userInfo, setUserInfo] = useState(null);
   const [profilePopUp, setProfilePopUp] = useState(false);
   const { country_code, setCountryCode, setSymbol } = useContext(FilterContext);
@@ -125,84 +130,77 @@ function App() {
             value={{ isAuth, setIsAuth, userInfo, setUserInfo }}
           >
             <ToastContainer />
-            <Router>
-              <Header
-                setIsAuth={setIsAuth}
-                isAuth={isAuth}
-                profilePopUp={profilePopUp}
-                setProfilePopUp={setProfilePopUp}
+
+            <Header
+              setIsAuth={setIsAuth}
+              isAuth={isAuth}
+              profilePopUp={profilePopUp}
+              setProfilePopUp={setProfilePopUp}
+            />
+
+            <Routes>
+              <Route
+                path="/"
+                exact
+                element={<Homepage landingPageData={landingPageData} />}
               />
+              <Route path="/subscribe" exact element={<LinkPage />} />
+              <Route path="/about" element={<About />} />
+              <Route path="/contact" element={<Contact />} />
+              <Route path="/login" element={<SignUp type={"login"} />} />
+              <Route path="/signup" element={<SignUp type={"signup"} />} />
+              <Route path="/forgot" element={<Forgot />} />
+              <Route
+                path="reset-password"
+                element={<SignUp type={"reset-password"} />}
+              />
+              <Route path="/detailpage/:id" element={<DetailPage />} />
+              <Route
+                path="/glasses/:category/:catid/:gender/:genderid"
+                element={<WomenEyeglasses />}
+              />
+              <Route
+                path="/glasses/:category/:catid/:gender"
+                element={<WomenEyeglasses />}
+              />
+              <Route path="/tryon" element={<TryOn3d />} />
+              <Route
+                path="/myaccount"
+                element={<Wishlist path={"myaccount"} />}
+              />
+              <Route
+                path="/accountinfo"
+                element={<Wishlist path={"accountinfo"} />}
+              />
+              <Route
+                path="/orderhistory"
+                element={<Wishlist path={"orderhistory"} />}
+              />
+              <Route
+                path="/wishlist"
+                element={<Wishlist path={"wishlist"} />}
+              />
+              <Route path="/coupons" element={<Wishlist path={"coupons"} />} />
+              <Route path="/address" element={<Wishlist path={"address"} />} />
+              <Route
+                path="/helpcenter"
+                element={<Wishlist path={"helpcenter"} />}
+              />
+              <Route path="/payment" element={<Payment />} />
 
-              <Routes>
-                <Route
-                  path="/"
-                  exact
-                  element={<Homepage landingPageData={landingPageData} />}
-                />
-                <Route path="/subscribe" exact element={<LinkPage />} />
-                <Route path="/about" element={<About />} />
-                <Route path="/contact" element={<Contact />} />
-                <Route path="/login" element={<SignUp type={"login"} />} />
-                <Route path="/signup" element={<SignUp type={"signup"} />} />
-                <Route path="/forgot" element={<Forgot />} />
-                <Route
-                  path="reset-password"
-                  element={<SignUp type={"reset-password"} />}
-                />
-                <Route path="/detailpage/:id" element={<DetailPage />} />
-                <Route
-                  path="/glasses/:category/:catid/:gender/:genderid"
-                  element={<WomenEyeglasses />}
-                />
-                <Route
-                  path="/glasses/:category/:catid/:gender"
-                  element={<WomenEyeglasses />}
-                />
-                <Route path="/tryon" element={<TryOn3d />} />
-                <Route
-                  path="/myaccount"
-                  element={<Wishlist path={"myaccount"} />}
-                />
-                <Route
-                  path="/accountinfo"
-                  element={<Wishlist path={"accountinfo"} />}
-                />
-                <Route
-                  path="/orderhistory"
-                  element={<Wishlist path={"orderhistory"} />}
-                />
-                <Route
-                  path="/wishlist"
-                  element={<Wishlist path={"wishlist"} />}
-                />
-                <Route
-                  path="/coupons"
-                  element={<Wishlist path={"coupons"} />}
-                />
-                <Route
-                  path="/address"
-                  element={<Wishlist path={"address"} />}
-                />
-                <Route
-                  path="/helpcenter"
-                  element={<Wishlist path={"helpcenter"} />}
-                />
-                <Route path="/payment" element={<Payment />} />
+              <Route path="/cart" element={<Cart />} />
+              <Route path="/checkout" element={<Checkout />} />
 
-                <Route path="/cart" element={<Cart />} />
-                <Route path="/checkout" element={<Checkout />} />
-
-                <Route path="/orderstrack/:id" element={<OrdersTrack />} />
-
-                <Route
-                  path="/termsandconditions"
-                  element={<TermsConditions />}
-                />
-                <Route path="/privacypolicy" element={<PrivacyPolicy />} />
-                <Route path="/trackorder" element={<TrackOrder />} />
-              </Routes>
-              <Footer />
-            </Router>
+              <Route path="/orderstrack/:id" element={<OrdersTrack />} />
+              <Route
+                path={`/:${currentPath[1]}`}
+                element={<CMSpage slug={currentPath[1]} />}
+              />
+              <Route path="/termsandconditions" element={<TermsConditions />} />
+              <Route path="/privacypolicy" element={<PrivacyPolicy />} />
+              <Route path="/trackorder" element={<TrackOrder />} />
+            </Routes>
+            {/* <Footer /> */}
           </AuthContext.Provider>
         </ProductDetailProvider>
       </CartDetailProvider>

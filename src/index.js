@@ -7,6 +7,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import { QueryClient, QueryClientProvider } from "react-query";
 import { Auth0Provider } from "@auth0/auth0-react";
 import { FilterProvider } from "./context/FilterContext";
+import { BrowserRouter as Router } from "react-router-dom";
 const queryClient = new QueryClient();
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
@@ -18,11 +19,13 @@ root.render(
       redirect_uri: "http://localhost:3000",
     }}
   >
-    <QueryClientProvider client={queryClient}>
-      <FilterProvider>
-        <App />
-      </FilterProvider>
-    </QueryClientProvider>
+    <Router>
+      <QueryClientProvider client={queryClient}>
+        <FilterProvider>
+          <App />
+        </FilterProvider>
+      </QueryClientProvider>
+    </Router>
   </Auth0Provider>
 );
 
